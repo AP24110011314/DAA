@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+
+void Hanoi(int n, char source, char auxiliary, char destination) {
+    if (n == 1) {
+        cout << "Move disk 1 from " << source << " to " << destination << endl;
+        return;
+    }
+
+    
+    Hanoi(n - 1, source, destination, auxiliary);
+
+   
+    cout << "Move disk " << n << " from " << source << " to " << destination << endl;
+
+    
+    Hanoi(n - 1, auxiliary, source, destination);
+}
+
+int main() {
+    int n;
+    cout << "Enter number of disks: ";
+    cin >> n;
+
+    cout << "The sequence of moves are:" << endl;
+    Hanoi(n, 'A', 'B', 'C');
+
+    return 0;
+}
